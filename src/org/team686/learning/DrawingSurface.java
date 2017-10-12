@@ -2,6 +2,7 @@ package org.team686.learning;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.geom.AffineTransform;
 
 import javax.swing.JComponent;
 import javax.swing.JFrame;
@@ -10,6 +11,9 @@ import javax.swing.JPanel;
 public class DrawingSurface
 {
 	public CircleSprite circleSprite;
+	
+	public final int HEIGHT = 500;
+	public final int WIDTH = 500;
 	
 	public DrawingSurface(Circle _circle)
 	{
@@ -25,9 +29,15 @@ public class DrawingSurface
 		frame.setLayout(new BorderLayout());
 		
 		frame.add(panel);
-		frame.setSize(500, 500);
+		frame.setSize(HEIGHT, WIDTH);
 		frame.setLocationRelativeTo(null);		// center frame
 		frame.setVisible(true);
+		
+		AffineTransform xform = new AffineTransform();
+		xform.scale(1, -1);
+		xform.translate(WIDTH/2, HEIGHT/2);
+		
+		frame.setTr
 	}
 
 	
@@ -42,12 +52,6 @@ public class DrawingSurface
 			circle = _circle;
 		}
 		
-//		public void myPaint(Circle _circle)
-//		{
-//			circle = _circle;
-//			repaint();
-//		}
-		
 		@Override
 		public void paintComponent(Graphics g)
 		{
@@ -59,7 +63,6 @@ public class DrawingSurface
 
 	public void update(Circle _circle)
 	{
-//		circleSprite.myPaint(_circle);
 		circleSprite.repaint();
 	}
 	
