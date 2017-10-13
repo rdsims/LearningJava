@@ -4,20 +4,20 @@ public class Tutorial1
 {
 	public static void main(String[] args)
 	{
-		Circle circle = new Circle(10, 10, 10);
+		Circle circle = new Circle(1, 1, 1);
 
-		DrawingSurface surface = new DrawingSurface(circle);
+		DrawingFigure surface = new DrawingFigure(circle);
 	
 		surface.update(circle);
 		
         wait(1.0);
 		
-		circle.setX(20);
+		circle.setX(2);
 		surface.update(circle);
 
         wait(1.0);
 		
-		circle.setY(100);
+		circle.setY(10);
 		surface.update(circle);
 	}
 
